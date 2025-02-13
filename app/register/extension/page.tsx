@@ -30,7 +30,9 @@ export default function Extension() {
           </h1>
 
           <p className="max-sm:text-lg text-xl text-blue-200 mb-8 max-w-3xl mx-auto">
-            Prepare-se para liberar o poder da automação. Deixe a <span className="font-bold" >Number One (NB1) </span> transformar sua navegação!
+            Prepare-se para liberar o poder da automação. Deixe a{" "}
+            <span className="font-bold">Number One (NB1) </span> transformar sua
+            navegação!
           </p>
 
           <div className="bg-blue-900/30 p-6 pt-2 rounded-xl backdrop-blur-sm mb-8">
@@ -39,24 +41,8 @@ export default function Extension() {
             </p>
 
             <div className="rounded-lg overflow-hidden max-h-96 shadow-2xl">
-              {/* <iframe
-                src="https://drive.google.com/file/d/16nYIKUpLanS6ezERnsnT5asS3uLiPDBd/preview"
-                width="100%"
-                height="100%"
-                allow="autoplay"
-                allowFullScreen
-                allowTransparency
-                className="border-none"
-              /> */}
-              <video
-                // src="/tuto.mp4"
-                className="w-full"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src="/tuto.mp4" type="video/mp4" />
+              <video className="w-full" autoPlay loop muted playsInline>
+                <source src="/tutorial.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -88,7 +74,9 @@ export default function Extension() {
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg hover:shadow-blue-500/50"
             >
               <Download className="w-6 h-6 max-sm:hidden" />
-              <span className="text-xl max-sm:text-lg">Baixar Extensão NB1</span>
+              <span className="text-xl max-sm:text-lg">
+                Baixar Extensão NB1
+              </span>
             </Link>
 
             <p className="text-blue-300 text-sm">
