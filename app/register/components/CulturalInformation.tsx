@@ -63,7 +63,7 @@ export function CulturalInformation({ onPrev }: CulturalInformationProps) {
 
       toast.success(t("messages.registrationSuccess"))
 
-      router.push("/register/choose-plan")
+      router.push("/register/extension")
     } catch (error) {
       console.error("Error submitting form:", error)
       toast.error(error instanceof Error ? error.message : t("messages.genericError"))

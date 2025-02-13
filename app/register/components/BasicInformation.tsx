@@ -164,11 +164,12 @@ export function BasicInformation({ onNext }: BasicInformationProps) {
         <Label htmlFor="birthDate">{t("basicInfo.birthDate")}</Label>
         <Input
           id="birthDate"
+          
           type="date"
           value={formData.birthDate}
           onChange={(e) => updateFormData({ birthDate: e.target.value })}
           required
-          className="h-12 bg-[#1a1f36] border-[#2e3650] text-white"
+          className="h-12 bg-[#1a1f36] border-[#2e3650] text-white "
         />
       </div>
       <div>
