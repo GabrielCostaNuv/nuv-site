@@ -28,8 +28,8 @@ export default function LoginForm() {
     } else {
       // Store the access token in cookies
       document.cookie = `authToken=${result.access_token}; path=/; max-age=${7 * 24 * 60 * 60}; Secure; SameSite=Lax`
-      console.log("Redirecting to /dashboard")
-      router.push("/dashboard")
+      console.log("Redirecting to /register/extension")
+      router.push("/register/extension")
     }
   }
 
