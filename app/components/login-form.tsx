@@ -1,39 +1,41 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { login } from "../actions/auth"
-import { BrandSphere } from "./brand-sphere"
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { login } from "../actions/auth";
+import { BrandSphere } from "./brand-sphere";
 
 export default function LoginForm() {
-  const [error, setError] = useState("")
-  const [attempts, setAttempts] = useState(0)
-  const router = useRouter()
+  const [error, setError] = useState("");
+  const [attempts, setAttempts] = useState(0);
+  const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    console.log("Form data submitted:", formData)
-    const result = await login(formData)
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    console.log("Form data submitted:", formData);
+    const result = await login(formData);
 
-    console.log("Login result:", result)
+    console.log("Login result:", result);
 
     if (!result.success) {
-      setError(result.error || "")
-      setAttempts((prev) => prev + 1)
+      setError(result.error || "");
+      setAttempts((prev) => prev + 1);
     } else {
       // Store the access token in cookies
-      document.cookie = `authToken=${result.access_token}; path=/; max-age=${7 * 24 * 60 * 60}; Secure; SameSite=Lax`
-      console.log("Redirecting to /register/extension")
-      router.push("/register/extension")
+      document.cookie = `authToken=${result.access_token}; path=/; max-age=${
+        7 * 24 * 60 * 60
+      }; Secure; SameSite=Lax`;
+      console.log("Redirecting to /extension");
+      router.push("/extension");
     }
-  }
+  };
 
-  const showForgotPassword = attempts >= 3
+  const showForgotPassword = attempts >= 3;
 
   return (
     <div className="w-full max-w-[400px] space-y-6 p-4">
@@ -64,7 +66,10 @@ export default function LoginForm() {
               Password
             </Label>
             {showForgotPassword && (
-              <Link href="/reset-password" className="text-sm text-[#3538CD] hover:text-[#2a2ca8]">
+              <Link
+                href="/reset-password"
+                className="text-sm text-[#3538CD] hover:text-[#2a2ca8]"
+              >
                 Forgot my password
               </Link>
             )}
@@ -81,18 +86,23 @@ export default function LoginForm() {
 
         {error && <p className="text-red-500 text-center">{error}</p>}
 
-        <Button type="submit" className="w-full h-12 mt-2 bg-[#3538CD] hover:bg-[#2a2ca8] text-white font-medium">
+        <Button
+          type="submit"
+          className="w-full h-12 mt-2 bg-[#3538CD] hover:bg-[#2a2ca8] text-white font-medium"
+        >
           Sign In
         </Button>
 
         <p className="text-center text-gray-400 pt-2">
           Don't have an account?{" "}
-          <Link href="/register" className="text-[#3538CD] hover:text-[#2a2ca8]">
+          <Link
+            href="/register"
+            className="text-[#3538CD] hover:text-[#2a2ca8]"
+          >
             Register
           </Link>
         </p>
       </form>
     </div>
-  )
+  );
 }
-

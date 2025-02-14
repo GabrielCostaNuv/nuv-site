@@ -1,32 +1,32 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { register } from "../actions/auth"
-import { BrandSphere } from "./brand-sphere"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { register } from "../actions/auth";
+import { BrandSphere } from "./brand-sphere";
 
 export default function RegisterForm() {
-  const [error, setError] = useState("")
-  const router = useRouter()
+  const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    const result = await register(formData)
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const result = await register(formData);
 
     if (result.error) {
-      setError(result.error)
+      setError(result.error);
     } else {
       if (result.userData) {
-        localStorage.setItem("userData", JSON.stringify(result.userData))
+        localStorage.setItem("userData", JSON.stringify(result.userData));
       }
-      router.push("/register/extension")
+      router.push("/extension");
     }
-  }
+  };
 
   return (
     <div className="w-full max-w-[400px] space-y-6 p-4">
@@ -81,7 +81,10 @@ export default function RegisterForm() {
 
         {error && <p className="text-red-500 text-center">{error}</p>}
 
-        <Button type="submit" className="w-full h-12 mt-2 bg-[#3538CD] hover:bg-[#2a2ca8] text-white font-medium">
+        <Button
+          type="submit"
+          className="w-full h-12 mt-2 bg-[#3538CD] hover:bg-[#2a2ca8] text-white font-medium"
+        >
           Create Account
         </Button>
 
@@ -93,6 +96,5 @@ export default function RegisterForm() {
         </p>
       </form>
     </div>
-  )
+  );
 }
-
