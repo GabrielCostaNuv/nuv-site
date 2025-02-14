@@ -130,7 +130,7 @@ export const SparklesCore = ({
       window.removeEventListener("resize", handleResize)
       cancelAnimationFrame(animationFrameId)
     }
-  }, [maxSize, minSize, particleColor, particleDensity, mousePosition.x, mousePosition.y])
+  }, [maxSize, minSize, particleColor, particleDensity])
 
   return (
     <canvas
