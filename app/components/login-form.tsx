@@ -103,6 +103,16 @@ export default function LoginForm() {
           </Link>
         </p>
       </form>
+
+      <div className="flex gap-5 flex-wrap items-center justify-center">
+        <Link href="/terms" className="text-blue-500 hover:underline text-[12px]">
+          Terms and Conditions
+        </Link>
+
+        <Link href="/policy" className="text-blue-500 hover:underline text-[12px]">
+          Policy and Privacy
+        </Link>
+      </div>
     </div>
   );
 }
