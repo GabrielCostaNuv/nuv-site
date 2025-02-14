@@ -24,7 +24,7 @@ export default function RegisterForm() {
       if (result.userData) {
         localStorage.setItem("userData", JSON.stringify(result.userData))
       }
-      router.push("/dashboard")
+      router.push("/register/extension")
     }
   }
 

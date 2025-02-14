@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server"
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get("authToken")?.value || ""
 
-  // Se o usuário acessa "/" e já tem token, redirecionar para /dashboard
+  // Se o usuário acessa "/" e já tem token, redirecionar para /register/extension
   if (request.nextUrl.pathname === "/") {
     if (token) {
       // Valida token no endpoint /me
@@ -22,7 +22,7 @@ export async function middleware(request: NextRequest) {
 
         const validationResponse = await validateToken.json()
         if (validationResponse.status) {
-          return NextResponse.redirect(new URL("/dashboard", request.url))
+          return NextResponse.redirect(new URL("/register/extension", request.url))
         }
       } catch (error) {
         console.error("Token validation error:", error)
@@ -30,8 +30,8 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Se o usuário acessa "/dashboard" e não tem token, redireciona para "/"
-  if (request.nextUrl.pathname.startsWith("/dashboard")) {
+  // Se o usuário acessa "/register/extension" e não tem token, redireciona para "/"
+  if (request.nextUrl.pathname.startsWith("/register/extension")) {
     if (!token) {
       return NextResponse.redirect(new URL("/", request.url))
     }
@@ -59,13 +59,13 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Se não for "/" ou "/dashboard" (ou a verificação passou), segue normalmente.
+  // Se não for "/" ou "/register/extension" (ou a verificação passou), segue normalmente.
   return NextResponse.next()
 }
 
 // É importante ajustar o matcher:
 export const config = {
   // Agora vamos interceptar também a rota "/"
-  matcher: ["/", "/dashboard/:path*"],
+  matcher: ["/", "/register/:path*"],
 }
 
