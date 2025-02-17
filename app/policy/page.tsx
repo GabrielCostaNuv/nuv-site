@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function PolicyAndPrivacy() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl text-white">
-      <h1 className="text-3xl font-bold mb-6 ">Privacy and Policy</h1>
+      <h1 className="text-3xl font-bold mb-6 ">Privacy Policy</h1>
 
       <section className="mb-8">
         <p className="mb-4 text-gray-400">

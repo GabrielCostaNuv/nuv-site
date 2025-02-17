@@ -110,7 +110,7 @@ export default function LoginForm() {
         </Link>
 
         <Link href="/policy" className="text-blue-500 hover:underline text-[12px]">
-          Policy and Privacy
+          Policy Privacy
         </Link>
       </div>
     </div>
